@@ -32,7 +32,6 @@ namespace OrderParserChallenge
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.displayAllResults = new System.Windows.Forms.Button();
             this.parseData = new System.Windows.Forms.Button();
             this.account1 = new System.Windows.Forms.Button();
             this.account2 = new System.Windows.Forms.Button();
@@ -61,16 +60,6 @@ namespace OrderParserChallenge
             this.richTextBox1.Size = new System.Drawing.Size(665, 426);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            // 
-            // displayAllResults
-            // 
-            this.displayAllResults.Location = new System.Drawing.Point(12, 370);
-            this.displayAllResults.Name = "displayAllResults";
-            this.displayAllResults.Size = new System.Drawing.Size(105, 34);
-            this.displayAllResults.TabIndex = 2;
-            this.displayAllResults.Text = "Display All Results";
-            this.displayAllResults.UseVisualStyleBackColor = true;
-            this.displayAllResults.Click += new System.EventHandler(this.button2_Click);
             // 
             // parseData
             // 
@@ -121,7 +110,6 @@ namespace OrderParserChallenge
             this.Controls.Add(this.account2);
             this.Controls.Add(this.account1);
             this.Controls.Add(this.parseData);
-            this.Controls.Add(this.displayAllResults);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -136,7 +124,6 @@ namespace OrderParserChallenge
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button displayAllResults;
         private System.Windows.Forms.Button parseData;
         private System.Windows.Forms.Button account1;
         private System.Windows.Forms.Button account2;

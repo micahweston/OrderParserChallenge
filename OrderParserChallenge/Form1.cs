@@ -1,4 +1,16 @@
-﻿using System;
+﻿// Order parsing challenge. 
+// Author: Micah Weston
+// Date: 10/29/2021
+
+// This program is designed to take a specific file, and parse through each line to extract information for account holder,
+// and order details.
+
+// TODO: Remove redundancy from file by creating future classes. Research on future data structures. How to store data in array,
+// TODO CONT: then pass array values over to class to parse files. Each array will hold values depending on line item, and also which 
+// TODO CONT: account is being passed. 
+// TODO CONT: Limitations: Further research is needing to be done on C# syntax to make sure that redundancy is limited. And program can be more modular.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +26,7 @@ namespace OrderParserChallenge
 {
     public partial class Form1 : Form
     {
+        // declaring variables needed for file.
         private string filepath;
         Order order0 = new Order();
         Order.LineNumber order0Line0 = new Order.LineNumber();
@@ -89,6 +102,7 @@ namespace OrderParserChallenge
             int count = 0;
             foreach (string line in lines)
             {
+                // Loop to store all order detail lines starting with 300. Needs to be implemented in own class. Needs to be changed to remove redundancy.
                 if (line.Substring(0, 3) == "100")
                 {
                     if(previousLoop == "300")
@@ -142,10 +156,12 @@ namespace OrderParserChallenge
                     }
 
                 }
+                // Loop to store all order detail lines starting with 300. Needs to be implemented in own class. Needs to be changed to remove redundancy.
                 else if (line.Substring(0, 3) == "200")
                 {
                     if (count == 0)
                     {
+                        // Saving address info
                         order0.AddressLineOne = line.Substring(3, 50).Trim();
                         order0.AddressLineTwo = (line.Substring(53, 50).Trim()).Equals("") ? null : line.Substring(53, 50);
                         order0.City = line.Substring(103, 50).Trim();
@@ -154,6 +170,7 @@ namespace OrderParserChallenge
                     }
                     else if (count == 1)
                     {
+                        // Saving address info
                         order1.AddressLineOne = line.Substring(3, 50).Trim();
                         order1.AddressLineTwo = (line.Substring(53, 50).Trim()).Equals("") ? null : line.Substring(53, 50);
                         order1.City = line.Substring(103, 50).Trim();
@@ -162,6 +179,7 @@ namespace OrderParserChallenge
                     }
                     else if (count == 2)
                     {
+                        // saving address info
                         order2.AddressLineOne = line.Substring(3, 50).Trim();
                         order2.AddressLineTwo = (line.Substring(53, 50).Trim()).Equals("") ? null : line.Substring(53, 50);
                         order2.City = line.Substring(103, 50).Trim();
@@ -169,11 +187,13 @@ namespace OrderParserChallenge
                         order2.ZipCode = line.Substring(155, 5).Trim();
                     }
                 }
+                // Loop to store all order detail lines starting with 300. Needs to be implemented in own class. Needs to be changed to remove redundancy.
                 else if (line.Substring(0, 3) == "300")
                 {
 
                     if (count == 0)
                     {
+                        // store order details
                         if (lineCount == 0)
                         {
                             order0.ValidOrder = true;
@@ -199,6 +219,7 @@ namespace OrderParserChallenge
                             order0Line0.Description = line.Substring(30, 50).Trim();
                             lineCount += 1;
                         }
+                        // store order details
                         else if (lineCount == 1)
                         {
                             order0Line1.LineNum = Int16.Parse(line.Substring(3, 2).Trim());
@@ -224,6 +245,7 @@ namespace OrderParserChallenge
                             order0Line1.Description = line.Substring(30, 50).Trim();
                             lineCount += 1;
                         }
+                        // store order details
                         else if (lineCount == 2)
                         {
                             order0Line2.LineNum = Int16.Parse(line.Substring(3, 2).Trim());
@@ -252,6 +274,7 @@ namespace OrderParserChallenge
                     }
                     else if (count == 1)
                     {
+                        // store order details
                         if (lineCount == 0)
                         {
                             order1.ValidOrder = true;
@@ -278,6 +301,7 @@ namespace OrderParserChallenge
                             order1Line0.Description = line.Substring(30, 50).Trim();
                             lineCount += 1;
                         }
+                        // store order details
                         else if (lineCount == 1)
                         {
                             order1Line1.LineNum = Int16.Parse(line.Substring(3, 2).Trim());
@@ -303,6 +327,7 @@ namespace OrderParserChallenge
                             order1Line1.Description = line.Substring(30, 50).Trim();
                             lineCount += 1;
                         }
+                        // store order details
                         else if (lineCount == 2)
                         {
                             order1Line2.LineNum = Int16.Parse(line.Substring(3, 2).Trim());
@@ -331,6 +356,7 @@ namespace OrderParserChallenge
                     }
                     else if (count == 2)
                     {
+                        // store order details
                         if (lineCount == 0)
                         {
                             order2.ValidOrder = true;
@@ -357,6 +383,7 @@ namespace OrderParserChallenge
                             order2Line0.Description = line.Substring(30, 50).Trim();
                             lineCount += 1;
                         }
+                        // store order details
                         else if (lineCount == 1)
                         {
                             order2Line1.LineNum = Int16.Parse(line.Substring(3, 2).Trim());
@@ -382,6 +409,7 @@ namespace OrderParserChallenge
                             order2Line1.Description = line.Substring(30, 50).Trim();
                             lineCount += 1;
                         }
+                        // store order details
                         else if (lineCount == 2)
                         {
                             order2Line2.LineNum = Int16.Parse(line.Substring(3, 2).Trim());
@@ -409,10 +437,12 @@ namespace OrderParserChallenge
                         }
                     }
                 }
+                // store data for loop currently to be used to tell when we are on a new order.
                 previousLoop = line.Substring(0, 3);
             }
         }
 
+        // Display data for account one. Needs to be stored in own class, and remove redundancy. 
         private void account1_Click(object sender, EventArgs e)
         {
             string displayAccountOne = $"Order Number: {order0.OrderNumber}\n Total Items: {order0.TotalItems}\n Total Cost: {order0.TotalCost}\n" +
@@ -422,6 +452,7 @@ namespace OrderParserChallenge
             string errorOne = $"This Account order has an error: {order0.ErrorMessage}\n\n";
             string displayOrderDetailsOne = "";
             // validate how many orders
+            // Error with showing second order. Need to debug further.
             if (order0Line0 != null && order0Line1 != null && order0Line2 != null)
             {
                 displayOrderDetailsOne = $"Order Number: {order0Line0.LineNum}: Quantity: {order0Line0.Quantity}, Cost per item: {order0Line0.CostEach}, " +
@@ -445,6 +476,7 @@ namespace OrderParserChallenge
             {
                 displayOrderDetailsOne = "No order details to be shown.\n\n";
             }
+            // Display data after clearing textbox.
             richTextBox1.Clear();
             if (order0.ValidOrder == true)
             {   
@@ -457,6 +489,7 @@ namespace OrderParserChallenge
 
         }
 
+        // Display data for account two. Needs to be stored in own class, and remove redundancy.
         private void account2_Click(object sender, EventArgs e)
         {
             string displayAccountTwo = $"Order Number: {order1.OrderNumber}\n Total Items: {order1.TotalItems}\n Total Cost: {order1.TotalCost}\n" +
@@ -489,6 +522,7 @@ namespace OrderParserChallenge
             {
                 displayOrderDetailsTwo = "No order details to be shown.\n\n";
             }
+            // Display data after clearing text box
             richTextBox1.Clear();
             if (order1.ValidOrder)
             {
@@ -502,6 +536,7 @@ namespace OrderParserChallenge
             }
         }
 
+        // Display data for account three. Needs to be stored in own class, and remove redundancy.
         private void Account3_Click(object sender, EventArgs e)
         {
             string displayAccountThree = $"Order Number: {order2.OrderNumber}\n Total Items: {order2.TotalItems}\n Total Cost: {order2.TotalCost}\n" +
@@ -534,6 +569,8 @@ namespace OrderParserChallenge
             {
                 displayOrderDetailsThree = "No order details to be shown.\n\n";
             }
+
+            // Display data after clearing text box
             richTextBox1.Clear();
             if (order2.ValidOrder)
             {
