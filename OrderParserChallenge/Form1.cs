@@ -102,7 +102,7 @@ namespace OrderParserChallenge
             MessageBox.Show("File parsing finished.");
         }
 
-        // Display data for account one. Needs to be stored in own class, and remove redundancy. 
+        // Display data for accounts. Needs to be stored in own class, and remove redundancy. 
         private void account1_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
