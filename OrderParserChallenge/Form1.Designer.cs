@@ -33,9 +33,7 @@ namespace OrderParserChallenge
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.parseData = new System.Windows.Forms.Button();
-            this.account1 = new System.Windows.Forms.Button();
-            this.account2 = new System.Windows.Forms.Button();
-            this.Account3 = new System.Windows.Forms.Button();
+            this.allAccounts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -71,44 +69,22 @@ namespace OrderParserChallenge
             this.parseData.UseVisualStyleBackColor = true;
             this.parseData.Click += new System.EventHandler(this.parseData_Click);
             // 
-            // account1
+            // allAccounts
             // 
-            this.account1.Location = new System.Drawing.Point(12, 159);
-            this.account1.Name = "account1";
-            this.account1.Size = new System.Drawing.Size(105, 35);
-            this.account1.TabIndex = 4;
-            this.account1.Text = "Display Account 1";
-            this.account1.UseVisualStyleBackColor = true;
-            this.account1.Click += new System.EventHandler(this.account1_Click);
-            // 
-            // account2
-            // 
-            this.account2.Location = new System.Drawing.Point(12, 210);
-            this.account2.Name = "account2";
-            this.account2.Size = new System.Drawing.Size(105, 38);
-            this.account2.TabIndex = 5;
-            this.account2.Text = "Display Account 2";
-            this.account2.UseVisualStyleBackColor = true;
-            this.account2.Click += new System.EventHandler(this.account2_Click);
-            // 
-            // Account3
-            // 
-            this.Account3.Location = new System.Drawing.Point(12, 265);
-            this.Account3.Name = "Account3";
-            this.Account3.Size = new System.Drawing.Size(105, 35);
-            this.Account3.TabIndex = 6;
-            this.Account3.Text = "Display Account 3";
-            this.Account3.UseVisualStyleBackColor = true;
-            this.Account3.Click += new System.EventHandler(this.Account3_Click);
+            this.allAccounts.Location = new System.Drawing.Point(12, 159);
+            this.allAccounts.Name = "allAccounts";
+            this.allAccounts.Size = new System.Drawing.Size(105, 35);
+            this.allAccounts.TabIndex = 4;
+            this.allAccounts.Text = "Display Information";
+            this.allAccounts.UseVisualStyleBackColor = true;
+            this.allAccounts.Click += new System.EventHandler(this.account1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Account3);
-            this.Controls.Add(this.account2);
-            this.Controls.Add(this.account1);
+            this.Controls.Add(this.allAccounts);
             this.Controls.Add(this.parseData);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
@@ -125,9 +101,7 @@ namespace OrderParserChallenge
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button parseData;
-        private System.Windows.Forms.Button account1;
-        private System.Windows.Forms.Button account2;
-        private System.Windows.Forms.Button Account3;
+        private System.Windows.Forms.Button allAccounts;
     }
 }
 
